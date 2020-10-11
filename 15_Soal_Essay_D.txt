@@ -1,0 +1,54 @@
+************ 15 (Soal essay D) ************ 
+
+MariaDB [quiz2]> INSERT INTO customers VALUES (1, 'John Doe', 'john@doe.com', 'john123'),
+    -> (2, 'Jane Doe', 'jane@doe.com', 'jenita123');
+Query OK, 2 rows affected (0.015 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [quiz2]> select * from customers;
++----+----------+--------------+-----------+
+| id | name     | email        | password  |
++----+----------+--------------+-----------+
+|  1 | John Doe | john@doe.com | john123   |
+|  2 | Jane Doe | jane@doe.com | jenita123 |
++----+----------+--------------+-----------+
+2 rows in set (0.004 sec)
+
+MariaDB [quiz2]> INSERT INTO orders VALUES
+    -> (1, 500, 1),
+    -> (2, 200, 2),
+    -> (3, 750, 2),
+    -> (4, 250, 1),
+    -> (5, 400, 2);
+Query OK, 5 rows affected (0.010 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [quiz2]> select * from orders;
++----+--------+-------------+
+| id | amount | customer_id |
++----+--------+-------------+
+|  1 | 500    |           1 |
+|  2 | 200    |           2 |
+|  3 | 750    |           2 |
+|  4 | 250    |           1 |
+|  5 | 400    |           2 |
++----+--------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [quiz2]>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

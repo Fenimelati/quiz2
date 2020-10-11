@@ -1,0 +1,58 @@
+************ 17 (Soal essay C) ************ 
+MariaDB [(none)]> create database quiz2;
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [(none)]> use quiz2;
+Database changed
+MariaDB [quiz2]> create table customers(
+    -> id int AUTO_INCREMENT,
+    -> name varchar(255),
+    -> email varchar(255),
+    -> password varchar(255),
+    -> Primary key(id)
+    -> );
+Query OK, 0 rows affected (0.024 sec)
+
+MariaDB [quiz2]> describe customers;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(255) | YES  |     | NULL    |                |
+| email    | varchar(255) | YES  |     | NULL    |                |
+| password | varchar(255) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.016 sec)
+
+MariaDB [quiz2]> create table orders(
+    -> id int AUTO_INCREMENT,
+    -> amount varchar(255),
+    -> customer_id int,
+    -> Primary key(id)
+    -> );
+Query OK, 0 rows affected (0.023 sec)
+
+MariaDB [quiz2]> describe orders;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int(11)      | NO   | PRI | NULL    | auto_increment |
+| amount      | varchar(255) | YES  |     | NULL    |                |
+| customer_id | int(11)      | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+3 rows in set (0.009 sec)
+
+MariaDB [quiz2]> alter table orders
+    -> add foreign key (customer_id) references orders(id);
+Query OK, 0 rows affected (0.059 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [quiz2]> describe orders;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int(11)      | NO   | PRI | NULL    | auto_increment |
+| amount      | varchar(255) | YES  |     | NULL    |                |
+| customer_id | int(11)      | YES  | MUL | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+3 rows in set (0.009 sec)
